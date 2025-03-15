@@ -5,16 +5,16 @@ When it comes to neural network based models each neuron often has associated we
 When training these models in the raw form tweak these weights until a particular objective is met.
 This means that models using FP32 weights will require 32 bits per weight parameter.
 
-For example, the 8 billion parameter llama3.1 8b model would require ~239 GB of space to hold all of the weights.
+For example, 8 billion parameter llama3.1 8b model would require ~30 GB of space to hold all of the FP32 weights.
 
 ```
-(8000000000 * 32)/1024/1024/1024 = 238.418
+(8000000000 * 32)/8/1024/1024/1024 = 29.8023223877
 ```
 
-However with 4 bit quantization, we can reduce the required space down to  ~30 GB.
+However with 4 bit quantization, we can reduce the required space down to  ~4 GB.
 
 ```
-(8000000000 * 4)/1024/1024/1024 = 29.802
+(8000000000 * 4)/8/1024/1024/1024 = 3.725
 ```
 
 As noted in [1] 
